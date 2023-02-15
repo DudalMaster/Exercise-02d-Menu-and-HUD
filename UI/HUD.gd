@@ -21,7 +21,7 @@ func update_lives():
 		child.queue_free()
 	for i in range(Global.lives):
 		var indicator = Indicator.instance()
-		indicator.position = Vector2(lives_pos.x,+i*lives_pos.y)
+		indicator.position = Vector2(lives_pos.x+i*lives_index,lives_pos.y)
 		$Indicator_Container.add_child(indicator)
 
 func _on_Timer_timeout():

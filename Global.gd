@@ -15,7 +15,7 @@ func _ready():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("menu"):
-		var Control = get_node_or_null("root/Game/UI/Control")
+		var Control = get_node_or_null("/root/Game/UI/Paused_Menu")
 		if Control == null:
 			get_tree().quit()
 		else:
@@ -28,13 +28,13 @@ func _unhandled_input(event):
 
 func _resize():
 	VP = get_viewport().size
-	var HUD = get_node_or_null("/root/Game/UI/Hud")
+	var HUD = get_node_or_null("/root/Game/UI/HUD")
 	if HUD != null:
 		HUD.update_lives()
 
 func update_score(s):
 	score += s
-	var HUD = get_node_or_null("/root/Game/UI/Hud")
+	var HUD = get_node_or_null("/root/Game/UI/HUD")
 	if HUD != null:
 		HUD.update_score()
 
@@ -43,7 +43,7 @@ func update_lives(l):
 	if lives < 0:
 		var _scene = get_tree().change_scene("res://UI/End_Game.tscn")
 	else:
-		var HUD = get_node_or_null("/root/Game/UI/Hud")
+		var HUD = get_node_or_null("/root/Game/UI/HUD")
 		if HUD != null:
 			HUD.update_lives()
 
